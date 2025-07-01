@@ -33,6 +33,6 @@ func main() {
 
 Run all tests with:
 
-```
+```sh
 go test
 ```

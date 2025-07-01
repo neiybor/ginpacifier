@@ -1,18 +1,17 @@
-name: Run Tests
+name: CI
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+      - staging
 
 permissions:
   contents: read
 
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,23 +31,23 @@ jobs:
         include:
           - os: ubuntu-latest
             go-build: ~/.cache/go-build
-    name: ${{ matrix.os }} @ Go ${{ matrix.go }}
+    name: Run Tests
     runs-on: ${{ matrix.os }}
     env:
       GO111MODULE: on
       GOPROXY: https://proxy.golang.org
     steps:
       - name: Set up Go ${{ matrix.go }}
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
 
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ${{ matrix.go-build }}
