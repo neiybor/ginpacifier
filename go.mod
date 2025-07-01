@@ -4,13 +4,11 @@ go 1.23.0
 
 toolchain go1.24.4
 
-require github.com/gin-gonic/gin v1.10.1
+require github.com/gin-gonic/gin v1.9.1
 
 require (
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
-	github.com/cloudwego/iasm v0.2.0 // indirect
-	github.com/knz/go-libedit v1.10.1 // indirect
 )
 
 require (
