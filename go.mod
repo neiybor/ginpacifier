@@ -2,7 +2,7 @@ module ginpacifier
 
 go 1.22
 
-require github.com/gin-gonic/gin v1.10.1
+require github.com/gin-gonic/gin v1.9.1
 
 require (
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
